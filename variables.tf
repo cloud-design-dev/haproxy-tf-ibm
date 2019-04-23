@@ -1,14 +1,17 @@
-# IBM Cloud PaaS API Key:
-variable ibm_bx_api_key {}
+variable ibm_bx_api_key {
+  type    = "string"
+  default = ""
+}
 
-# IBM Cloud IaaS User (aka SoftLayer Username)
-variable ibm_sl_username {}
+variable ibm_sl_username {
+  type    = "string"
+  default = ""
+}
 
-# IBM Cloud IaaS User API key (aka SoftLayer User Api Key)
-variable ibm_sl_api_key {}
-
-variable dnsimple_token {}
-variable dnsimple_account {}
+variable ibm_sl_api_key {
+  type    = "string"
+  default = ""
+}
 
 variable datacenter {
   type = "map"
@@ -27,23 +30,20 @@ variable node_count {
   type = "map"
 
   default = {
-    nginx_lb = "2"
-    web      = "3"
+    haproxy = "2"
+    web     = "3"
   }
 }
 
-# The target operating system for the web nodes
 variable os {
   type = "map"
 
   default = {
-    u16   = "UBUNTU_16_64"
-    u18   = "UBUNTU_18_64"
-    win16 = "WIN_2016-STD_64"
+    u16 = "UBUNTU_16_64"
+    u18 = "UBUNTU_18_64"
   }
 }
 
-# The number of cores each web virtual guest will recieve
 variable vm_flavor {
   type = "map"
 
